@@ -2,11 +2,9 @@
   <div class="modal-body">
     <b-row>
       <b-col>
-        <div class="col-md-8">
-          <b-alert show variant="success" v-if="uid != null">
-            <strong>{{ uid }}</strong>
-          </b-alert>
-        </div>
+        <b-alert show variant="success" v-if="uid != null">
+          <strong>{{ uid }}</strong>
+        </b-alert>
 
         <b-form v-on:submit.prevent="share()" v-if="uid === null">
           <b-form-textarea placeholder="Вставте код яким хочете поділитись..."
