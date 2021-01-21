@@ -18,6 +18,7 @@ import { faFlag } from '@fortawesome/free-solid-svg-icons/faFlag';
 import { faHdd } from '@fortawesome/free-solid-svg-icons/faHdd';
 import { faHeart } from '@fortawesome/free-solid-svg-icons/faHeart';
 import { faHome } from '@fortawesome/free-solid-svg-icons/faHome';
+import { faFileImage } from '@fortawesome/free-solid-svg-icons/faFileImage';
 import { faList } from '@fortawesome/free-solid-svg-icons/faList';
 import { faLock } from '@fortawesome/free-solid-svg-icons/faLock';
 import { faPencilAlt } from '@fortawesome/free-solid-svg-icons/faPencilAlt';
@@ -128,6 +129,7 @@ export function initFortAwesome(vue) {
     faHdd,
     faHeart,
     faHome,
+    faFileImage,
     faList,
     faLock,
     faPencilAlt,
