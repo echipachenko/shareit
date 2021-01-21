@@ -1,0 +1,11 @@
+id;user_id;uid;duration;created;code
+1;86139;fbbeeba6-a497-4e07-95ff-74b7270bd4b9;75848;2021-01-21T12:56:21;../fake-data/blob/hipster.txt
+2;40756;dc2840e6-5405-4a90-bcd5-9f0ef7da609a;9929;2021-01-21T05:38:19;../fake-data/blob/hipster.txt
+3;28693;183f013a-ae98-449f-bbe1-bf9d49850cf3;75965;2021-01-21T03:05:47;../fake-data/blob/hipster.txt
+4;50808;1899128c-c1a8-477b-8393-4a563172bd78;55320;2021-01-21T04:28:46;../fake-data/blob/hipster.txt
+5;94579;ae9b1a9c-c00f-45eb-bb39-27907a94ae20;60896;2021-01-21T11:13:57;../fake-data/blob/hipster.txt
+6;49292;64a36662-8671-4b49-a529-25e7c1bb2702;82150;2021-01-20T21:37:08;../fake-data/blob/hipster.txt
+7;7096;f8642f2a-105f-458f-97dd-c87124a47db8;51277;2021-01-21T08:11:58;../fake-data/blob/hipster.txt
+8;59156;e2c054e2-31ed-4a7e-8ac7-4248e7af3b13;5583;2021-01-21T16:07:53;../fake-data/blob/hipster.txt
+9;48233;3a1b5bcd-7451-4355-a6eb-13224d114348;68808;2021-01-20T21:21:58;../fake-data/blob/hipster.txt
+10;46099;6934633c-b0e4-4415-b3d2-4786e2e5cbc8;28999;2021-01-20T20:20:18;../fake-data/blob/hipster.txt

@@ -1,0 +1,11 @@
+entity ShareCode {
+    userId Long,
+	uid UUID required unique,
+    duration Duration required,
+    created ZonedDateTime required,
+    code TextBlob required
+}
+
+skipClient *
+service * with serviceClass
+// dto all with mapstruct
