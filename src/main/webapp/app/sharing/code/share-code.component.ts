@@ -19,4 +19,9 @@ export default class ShareCode extends Vue {
       this.uid = result.data.uid;
     });
   }
+
+  public copyAndClose(): void {
+    console.warn('Implement me!');
+    this.$root.$emit('bv::hide::modal', 'share-code-page');
+  }
 }

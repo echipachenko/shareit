@@ -1,14 +1,14 @@
 package ua.shareit.repository;
 
-import ua.shareit.domain.ShareCode;
+import java.time.ZonedDateTime;
 
-import org.springframework.data.jpa.repository.*;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-/**
- * Spring Data  repository for the ShareCode entity.
- */
-@SuppressWarnings("unused")
+import ua.shareit.domain.ShareCode;
+
 @Repository
 public interface ShareCodeRepository extends JpaRepository<ShareCode, Long> {
+
+    long deleteByExpiredBefore(ZonedDateTime now);
 }

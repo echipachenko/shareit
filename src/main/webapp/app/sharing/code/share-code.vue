@@ -2,18 +2,27 @@
   <div class="modal-body">
     <b-row>
       <b-col>
-        <b-alert show variant="success" v-if="uid != null">
-          <strong>{{ uid }}</strong>
-        </b-alert>
+        <div v-if="uid != null">
+          <b-alert show variant="success">
+            Ваш код успіно завантажено. Ваш UUID: <strong>{{ uid }}</strong>
+          </b-alert>
 
-        <b-form v-on:submit.prevent="share()" v-if="uid === null">
-          <b-form-textarea placeholder="Вставте код яким хочете поділитись..."
-                           rows="10"
-                           max-rows="20"
-                           v-model="code">
-          </b-form-textarea>
-          <b-button variant="success" type="submit" class="mt-1">Поділитись</b-button>
-        </b-form>
+          <b-button variant="primary" class="mt-2" v-on:click="copyAndClose">
+            <font-awesome-icon icon="clipboard"/>
+            Скопіювати URL
+          </b-button>
+        </div>
+
+        <div v-if="uid === null">
+          <b-form v-on:submit.prevent="share()">
+            <b-form-textarea placeholder="Вставте код яким хочете поділитись..."
+                             rows="10"
+                             max-rows="20"
+                             v-model="code">
+            </b-form-textarea>
+            <b-button variant="success" type="submit" class="mt-1">Поділитись</b-button>
+          </b-form>
+        </div>
       </b-col>
     </b-row>
   </div>

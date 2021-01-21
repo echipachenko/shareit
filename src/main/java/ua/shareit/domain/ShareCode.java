@@ -1,14 +1,20 @@
 package ua.shareit.domain;
 
-import org.hibernate.annotations.Type;
-
-import javax.persistence.*;
-import javax.validation.constraints.*;
-
 import java.io.Serializable;
 import java.time.ZonedDateTime;
-import java.time.Duration;
 import java.util.UUID;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Lob;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+
+import org.hibernate.annotations.Type;
 
 /**
  * A ShareCode.
@@ -32,18 +38,17 @@ public class ShareCode implements Serializable {
     private UUID uid;
 
     @NotNull
-    @Column(name = "duration", nullable = false)
-    private Duration duration;
-
-    @NotNull
     @Column(name = "created", nullable = false)
     private ZonedDateTime created;
 
-    
+
     @Lob
     @Type(type = "org.hibernate.type.TextType")
     @Column(name = "code", nullable = false)
     private String code;
+
+    @Column(name = "expired")
+    private ZonedDateTime expired;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
     public Long getId() {
@@ -80,19 +85,6 @@ public class ShareCode implements Serializable {
         this.uid = uid;
     }
 
-    public Duration getDuration() {
-        return duration;
-    }
-
-    public ShareCode duration(Duration duration) {
-        this.duration = duration;
-        return this;
-    }
-
-    public void setDuration(Duration duration) {
-        this.duration = duration;
-    }
-
     public ZonedDateTime getCreated() {
         return created;
     }
@@ -117,6 +109,19 @@ public class ShareCode implements Serializable {
 
     public void setCode(String code) {
         this.code = code;
+    }
+
+    public ZonedDateTime getExpired() {
+        return expired;
+    }
+
+    public ShareCode expired(ZonedDateTime expired) {
+        this.expired = expired;
+        return this;
+    }
+
+    public void setExpired(ZonedDateTime expired) {
+        this.expired = expired;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
 
@@ -143,9 +148,9 @@ public class ShareCode implements Serializable {
             "id=" + getId() +
             ", userId=" + getUserId() +
             ", uid='" + getUid() + "'" +
-            ", duration='" + getDuration() + "'" +
             ", created='" + getCreated() + "'" +
             ", code='" + getCode() + "'" +
+            ", expired='" + getExpired() + "'" +
             "}";
     }
 }

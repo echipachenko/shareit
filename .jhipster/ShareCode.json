@@ -8,32 +8,22 @@
     {
       "fieldName": "uid",
       "fieldType": "UUID",
-      "fieldValidateRules": [
-        "required",
-        "unique"
-      ]
-    },
-    {
-      "fieldName": "duration",
-      "fieldType": "Duration",
-      "fieldValidateRules": [
-        "required"
-      ]
+      "fieldValidateRules": ["required", "unique"]
     },
     {
       "fieldName": "created",
       "fieldType": "ZonedDateTime",
-      "fieldValidateRules": [
-        "required"
-      ]
+      "fieldValidateRules": ["required"]
     },
     {
       "fieldName": "code",
       "fieldType": "byte[]",
       "fieldTypeBlobContent": "text",
-      "fieldValidateRules": [
-        "required"
-      ]
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "expired",
+      "fieldType": "ZonedDateTime"
     }
   ],
   "relationships": [],
@@ -48,5 +38,7 @@
   "embedded": false,
   "clientRootFolder": "",
   "applications": "*",
-  "skipClient": true
+  "skipClient": true,
+  "searchEngine": false,
+  "databaseType": "sql"
 }

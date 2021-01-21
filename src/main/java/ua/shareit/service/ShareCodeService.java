@@ -1,8 +1,6 @@
 package ua.shareit.service;
 
-import java.time.Duration;
 import java.time.ZonedDateTime;
-import java.time.temporal.ChronoUnit;
 import java.util.UUID;
 
 import org.springframework.stereotype.Service;
@@ -29,7 +27,7 @@ public class ShareCodeService {
         ShareCode shareCode = new ShareCode();
         shareCode.setUid(UUID.randomUUID());
         shareCode.setCreated(ZonedDateTime.now());
-        shareCode.setDuration(Duration.of(24, ChronoUnit.HOURS));
+        shareCode.setExpired(shareCode.getCreated().plusDays(1));
         shareCode.setCode(shareCodeVM.getCode());
         return shareCodeRepository.save(shareCode);
     }
