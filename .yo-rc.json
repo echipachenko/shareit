@@ -27,7 +27,7 @@
     "useSass": true,
     "clientPackageManager": "npm",
     "clientFramework": "vue",
-    "clientTheme": "litera",
+    "clientTheme": "cosmo",
     "clientThemeVariant": "primary",
     "creationTimestamp": 1611239345486,
     "testFrameworks": [],
