@@ -15,6 +15,9 @@ import {
   BNavItemDropdown,
   BCollapse,
   BBadge,
+  BContainer,
+  BRow,
+  BCol,
   BDropdown,
   BDropdownItem,
   BLink,
@@ -22,12 +25,16 @@ import {
   BModal,
   VBModal,
   BFormDatepicker,
+  BFormTextarea,
   BInputGroup,
   BInputGroupPrepend,
 } from 'bootstrap-vue';
 
 export function initBootstrapVue(vue) {
   vue.component('b-badge', BBadge);
+  vue.component('b-container', BContainer);
+  vue.component('b-row', BRow);
+  vue.component('b-col', BCol);
   vue.component('b-dropdown', BDropdown);
   vue.component('b-dropdown-item', BDropdownItem);
   vue.component('b-link', BLink);
@@ -45,6 +52,7 @@ export function initBootstrapVue(vue) {
   vue.component('b-form-input', BFormInput);
   vue.component('b-form-group', BFormGroup);
   vue.component('b-form-checkbox', BFormCheckbox);
+  vue.component('b-form-textarea', BFormTextarea);
   vue.component('b-collapse', BCollapse);
   vue.component('b-nav-item', BNavItem);
   vue.component('b-nav-item-dropdown', BNavItemDropdown);
