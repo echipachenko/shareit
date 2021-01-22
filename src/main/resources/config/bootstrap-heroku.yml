@@ -1,0 +1,11 @@
+# ===================================================================
+# Spring Cloud Config bootstrap configuration for the "heroku" profile
+# ===================================================================
+
+spring:
+  cloud:
+    config:
+      fail-fast: false
+      uri: ${JHIPSTER_REGISTRY_URL}/config
+    discovery:
+      enabled: false
