@@ -1,18 +1,20 @@
 import Vue from 'vue';
 import Component from 'vue-class-component';
+import Router from 'vue-router';
+import account from '@/router/account.ts';
+import admin from '@/router/admin.ts';
+import entities from '@/router/entities.ts';
+import pages from '@/router/pages.ts';
+import sharing from '@/router/sharing.ts';
+
 Component.registerHooks([
   'beforeRouteEnter',
   'beforeRouteLeave',
   'beforeRouteUpdate', // for vue-router 2.2+
 ]);
-import Router from 'vue-router';
 
 const Home = () => import('@/core/home/home.vue');
 const Error = () => import('@/core/error/error.vue');
-import account from '@/router/account.ts';
-import admin from '@/router/admin.ts';
-import entities from '@/router/entities.ts';
-import pages from '@/router/pages.ts';
 
 Vue.use(Router);
 
@@ -40,6 +42,7 @@ export default new Router({
     ...account,
     ...admin,
     ...entities,
-    ...pages
+    ...pages,
+    ...sharing
   ]
 });

@@ -12,6 +12,7 @@ import { faBell } from '@fortawesome/free-solid-svg-icons/faBell';
 import { faBook } from '@fortawesome/free-solid-svg-icons/faBook';
 import { faCloud } from '@fortawesome/free-solid-svg-icons/faCloud';
 import { faCode } from '@fortawesome/free-solid-svg-icons/faCode';
+import { faCopy } from '@fortawesome/free-solid-svg-icons/faCopy';
 import { faCogs } from '@fortawesome/free-solid-svg-icons/faCogs';
 import { faClipboard } from '@fortawesome/free-solid-svg-icons/faClipboard';
 import { faEye } from '@fortawesome/free-solid-svg-icons/faEye';
@@ -125,6 +126,7 @@ export function initFortAwesome(vue) {
     faBook,
     faCloud,
     faCode,
+    faCopy,
     faCogs,
     faClipboard,
     faEye,

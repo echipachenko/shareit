@@ -22,12 +22,14 @@ import UserManagementService from '@/admin/user-management/user-management.servi
 import LoginService from './account/login.service';
 import AccountService from './account/account.service';
 
-import ShareCodeService from './sharing/code/share-code.service';
-
 import '../content/scss/vendor.scss';
 import AlertService from '@/shared/alert/alert.service';
 import TranslationService from '@/locale/translation.service';
 import ConfigurationService from '@/admin/configuration/configuration.service';
+
+import HighlightJS from 'highlight.js';
+import ShareCodeService from './sharing/code/share-code.service';
+import ShareCodeViewService from '@/sharing/code/share-code-view.service';
 
 /* tslint:disable */
 
@@ -39,6 +41,7 @@ config.initVueApp(Vue);
 config.initFortAwesome(Vue);
 bootstrapVueConfig.initBootstrapVue(Vue);
 Vue.use(Vue2Filters);
+Vue.use(HighlightJS.vuePlugin);
 Vue.component('font-awesome-icon', FontAwesomeIcon);
 Vue.component('jhi-item-count', JhiItemCountComponent);
 Vue.component('jhi-sort-indicator', JhiSortIndicatorComponent);
@@ -97,6 +100,7 @@ new Vue({
     accountService: () => accountService,
 
     shareCodeService: () => new ShareCodeService(),
+    shareCodeViewService: () => new ShareCodeViewService(),
   },
   i18n,
   store,

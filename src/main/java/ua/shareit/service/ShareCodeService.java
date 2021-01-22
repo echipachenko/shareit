@@ -1,6 +1,7 @@
 package ua.shareit.service;
 
 import java.time.ZonedDateTime;
+import java.util.Optional;
 import java.util.UUID;
 
 import org.springframework.stereotype.Service;
@@ -30,5 +31,10 @@ public class ShareCodeService {
         shareCode.setExpired(shareCode.getCreated().plusDays(1));
         shareCode.setCode(shareCodeVM.getCode());
         return shareCodeRepository.save(shareCode);
+    }
+
+    @Transactional(readOnly = true)
+    public Optional<ShareCode> findByUid(UUID uid) {
+        return shareCodeRepository.findByUid(uid);
     }
 }
