@@ -1,20 +1,21 @@
 <template>
     <b-navbar toggleable="md" type="dark" class="bg-primary">
+        <b-container>
         <b-navbar-brand class="logo" b-link to="/">
-            <span class="logo-img"></span>
-            <span v-text="$t('global.title')" class="navbar-title">shareit</span> <span class="navbar-version">{{version}}</span>
-        </b-navbar-brand>      
-        <b-navbar-toggle 
-        right 
-        class="jh-navbar-toggler d-lg-none" 
-        href="javascript:void(0);"  
-        data-toggle="collapse" 
-        target="header-tabs" 
-        aria-expanded="false" 
+            <span><font-awesome-icon icon="share-alt"></font-awesome-icon> </span>
+            <span class="navbar-title">Shareit.com.ua</span>
+        </b-navbar-brand>
+        <b-navbar-toggle
+        right
+        class="jh-navbar-toggler d-lg-none"
+        href="javascript:void(0);"
+        data-toggle="collapse"
+        target="header-tabs"
+        aria-expanded="false"
         aria-label="Toggle navigation">
             <font-awesome-icon icon="bars" />
         </b-navbar-toggle>
-           
+
         <b-collapse is-nav id="header-tabs">
             <b-navbar-nav class="ml-auto">
                 <b-nav-item to="/" exact>
@@ -124,6 +125,7 @@
                 </b-nav-item-dropdown>
             </b-navbar-nav>
         </b-collapse>
+        </b-container>
     </b-navbar>
 </template>
 
@@ -135,11 +137,6 @@
 /* ==========================================================================
     Navbar
     ========================================================================== */
-.navbar-version {
-  font-size: 10px;
-}
-
-
 @media screen and (min-width: 768px) {
   .jh-navbar-toggler {
     display: none;

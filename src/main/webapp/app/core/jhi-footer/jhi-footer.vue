@@ -1,6 +1,6 @@
 <template>
     <div id="footer" class="footer">
-
+        <span class="text-muted">{{version}}</span>
     </div>
 </template>
 
@@ -9,6 +9,6 @@
 
 <style scoped>
     .footer {
-        text-align: left;
+        text-align: center;
     }
 </style>
