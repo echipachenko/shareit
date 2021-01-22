@@ -7,6 +7,14 @@
             Ваш код успіно завантажено. UUID: <strong>{{ uid }}</strong>
           </b-alert>
 
+          <b-alert :show="dismissCountDown"
+                   dismissible
+                   :variant="alertType"
+                   @dismissed="dismissCountDown=0"
+                   @dismiss-count-down="countDownChanged">
+            {{ alertMessage }}
+          </b-alert>
+
           <b-button variant="primary" class="mt-2" v-on:click="copyAndClose">
             <font-awesome-icon icon="clipboard"/>
             Скопіювати URL

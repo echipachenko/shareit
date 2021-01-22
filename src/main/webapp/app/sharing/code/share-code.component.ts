@@ -1,6 +1,6 @@
 import axios from 'axios';
-import Component from 'vue-class-component';
-import { Vue } from 'vue-property-decorator';
+import Component, { mixins } from 'vue-class-component';
+import AlertMixin from '@/shared/alert/alert.mixin';
 
 @Component({
   watch: {
@@ -9,7 +9,7 @@ import { Vue } from 'vue-property-decorator';
     },
   },
 })
-export default class ShareCode extends Vue {
+export default class ShareCode extends mixins(AlertMixin) {
   public code = null;
   public uid = null;
 
@@ -21,7 +21,10 @@ export default class ShareCode extends Vue {
   }
 
   public copyAndClose(): void {
-    console.warn('Implement me!');
-    this.$root.$emit('bv::hide::modal', 'share-code-page');
+    this.alertService().showAlert('В розробці!', 'danger');
+    this.getAlertFromStore();
+    /*setTimeout(() => {
+      this.$root.$emit('bv::hide::modal', 'share-code-page');
+    }, 2500);*/
   }
 }
