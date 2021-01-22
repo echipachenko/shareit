@@ -1,40 +1,41 @@
 <template>
-  <div v-if="shareCode">
-    <b-row>
-      <b-col>
-        <b-button variant="success" size="sm" class="my-2">
-          <font-awesome-icon icon="copy"></font-awesome-icon>
-          Copy
-        </b-button>
-      </b-col>
-    </b-row>
+  <b-container fluid="lg">
+    <div v-if="shareCode">
+      <b-row>
+        <b-col>
+          <b-alert :show="dismissCountDown"
+                   dismissible
+                   :variant="alertType"
+                   @dismissed="dismissCountDown=0"
+                   @dismiss-count-down="countDownChanged">
+            {{ alertMessage }}
+          </b-alert>
 
-    <b-row>
-      <b-col>
-        <highlightjs autodetect style="max-height: 2000px" :code="shareCode.code"/>
-      </b-col>
-    </b-row>
-
-    <b-row>
-      <b-col cols="6">
-        <table class="table table-sm table-borderless">
-          <tr>
-            <td>UUID</td>
-            <td>{{ shareCode.uid }}</td>
-          </tr>
-          <tr>
-            <td>Створено</td>
-            <td>{{ shareCode.created | formatDate}}</td>
-          </tr>
-          <tr>
-            <td>Доступний до</td>
-            <td>{{ shareCode.expired | formatDate}}</td>
-          </tr>
-        </table>
-      </b-col>
-    </b-row>
-  </div>
-
+          <b-button variant="success" class="my-2" size="sm" v-on:click="copyCodeToClipboard">
+            <font-awesome-icon icon="copy"></font-awesome-icon>
+            Копіювати код
+          </b-button>
+          <div>
+            <b-badge>UID</b-badge>
+            {{ shareCode.uid }}
+          </div>
+        </b-col>
+      </b-row>
+      <b-row>
+        <b-col>
+          <highlightjs autodetect style="max-height: 2000px" :code="shareCode.code"/>
+          <div>
+            <b-badge>Створено</b-badge>
+            {{ shareCode.created | formatDate }}
+          </div>
+          <div>
+            <b-badge>Буде видалено</b-badge>
+            {{ shareCode.expired | formatDate }}
+          </div>
+        </b-col>
+      </b-row>
+    </div>
+  </b-container>
 </template>
 <style scoped>
 .hljs {
