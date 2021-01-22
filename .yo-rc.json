@@ -51,6 +51,6 @@
     ],
     "herokuAppName": "shareitcomua",
     "herokuDeployType": "jar",
-    "herokuJavaVersion": "14"
+    "herokuJavaVersion": "15"
   }
 }
