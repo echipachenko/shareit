@@ -24,11 +24,11 @@
           </tr>
           <tr>
             <td>Створено</td>
-            <td>{{ shareCode.created }}</td>
+            <td>{{ shareCode.created | formatDate}}</td>
           </tr>
           <tr>
             <td>Доступний до</td>
-            <td>{{ shareCode.expired }}</td>
+            <td>{{ shareCode.expired | formatDate}}</td>
           </tr>
         </table>
       </b-col>

@@ -4,7 +4,7 @@
       <b-col>
         <div v-if="uid != null">
           <b-alert show variant="success">
-            Ваш код успіно завантажено. Ваш UUID: <strong>{{ uid }}</strong>
+            Ваш код успіно завантажено. UUID: <strong>{{ uid }}</strong>
           </b-alert>
 
           <b-button variant="primary" class="mt-2" v-on:click="copyAndClose">
