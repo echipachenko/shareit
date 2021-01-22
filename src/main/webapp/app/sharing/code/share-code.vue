@@ -13,7 +13,7 @@
           </b-button>
 
           <router-link :to="{name: 'ShareCodeView', params: {uid: uid}}" tag="button" class="btn btn-success mt-2">
-            <span class="d-none d-md-inline">Перейти до коду</span>
+            > Перейти до коду
           </router-link>
         </div>
 
