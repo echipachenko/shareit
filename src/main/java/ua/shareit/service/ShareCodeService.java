@@ -9,7 +9,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import ua.shareit.domain.ShareCode;
 import ua.shareit.repository.ShareCodeRepository;
-import ua.shareit.web.rest.vm.ShareCodeVM;
 
 /**
  * Service Implementation for managing {@link ShareCode}.
@@ -24,12 +23,12 @@ public class ShareCodeService {
         this.shareCodeRepository = shareCodeRepository;
     }
 
-    public ShareCode save(ShareCodeVM shareCodeVM) {
+    public ShareCode save(String code) {
         ShareCode shareCode = new ShareCode();
         shareCode.setUid(UUID.randomUUID());
         shareCode.setCreated(ZonedDateTime.now());
         shareCode.setExpired(shareCode.getCreated().plusDays(1));
-        shareCode.setCode(shareCodeVM.getCode());
+        shareCode.setCode(code);
         return shareCodeRepository.save(shareCode);
     }
 

@@ -46,7 +46,7 @@ public class ShareCodeResource {
     @PostMapping("/share-codes")
     public ResponseEntity<ShareCode> createShareCode(@Valid @RequestBody ShareCodeVM shareCode) throws URISyntaxException {
         log.debug("REST request to save ShareCode : {}", shareCode);
-        ShareCode result = shareCodeService.save(shareCode);
+        ShareCode result = shareCodeService.save(shareCode.getCode());
         return ResponseEntity.created(new URI("/api/share-codes/" + result.getUid()))
                 .headers(HeaderUtil.createEntityCreationAlert(applicationName, true, ENTITY_NAME, result.getUid().toString()))
                 .body(result);
