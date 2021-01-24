@@ -22,6 +22,7 @@ import io.github.jhipster.web.util.HeaderUtil;
 import io.github.jhipster.web.util.ResponseUtil;
 import ua.shareit.domain.ShareCode;
 import ua.shareit.service.ShareCodeService;
+import ua.shareit.service.google.ReCaptchaService;
 import ua.shareit.web.rest.vm.ShareCodeVM;
 
 /**
@@ -40,14 +41,17 @@ public class ShareCodeResource {
     private String applicationName;
 
     private final ShareCodeService shareCodeService;
+    private final ReCaptchaService reCaptchaService;
 
-    public ShareCodeResource(ShareCodeService shareCodeService) {
+    public ShareCodeResource(ShareCodeService shareCodeService, ReCaptchaService reCaptchaService) {
         this.shareCodeService = shareCodeService;
+        this.reCaptchaService = reCaptchaService;
     }
 
     @PostMapping("/share-codes")
     public ResponseEntity<ShareCode> createShareCode(@Valid @RequestBody ShareCodeVM shareCode) throws URISyntaxException {
         log.debug("REST request to save ShareCode : {}", shareCode);
+        reCaptchaService.validate(shareCode.getRecaptchaUserResponse());
         ShareCode result = shareCodeService.save(shareCode.getCode());
         return ResponseEntity.created(new URI("/api/share-codes/" + result.getUid()))
             .headers(HeaderUtil.createEntityCreationAlert(applicationName, true, ENTITY_NAME, result.getUid().toString()))

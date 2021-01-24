@@ -3,7 +3,7 @@ package ua.shareit.web.rest.vm;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
-public class ShareCodeVM {
+public class ShareCodeVM extends AbstractReCaptchaForm {
     @NotNull
     @Size(max = 1024 * 1024) //1MB
     private String code;

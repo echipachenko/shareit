@@ -135,3 +135,7 @@ jhipster:
 # ===================================================================
 
 # application:
+application:
+  recaptcha:
+    enabled: false
+    secret:

@@ -147,3 +147,7 @@ jhipster:
 # ===================================================================
 
 # application:
+application:
+  recaptcha:
+    enabled: true
+    secret: 6LfWbDoaAAAAAL79Gx7_EN0KWNjn6Jywo5WB7eof
