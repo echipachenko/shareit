@@ -26,6 +26,8 @@ public class RemoveExpiredShares {
     @Scheduled(fixedDelay = 60 * 1000)
     public void removeExpiredCodeShares() {
         long removed = shareCodeRepository.deleteByExpiredBefore(ZonedDateTime.now());
-        log.info("{} elements were removed", removed);
+        if (removed > 0) {
+            log.info("{} elements were removed", removed);
+        }
     }
 }
