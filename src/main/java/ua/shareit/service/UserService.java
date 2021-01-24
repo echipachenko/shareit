@@ -1,15 +1,13 @@
 package ua.shareit.service;
 
-import ua.shareit.config.Constants;
-import ua.shareit.domain.Authority;
-import ua.shareit.domain.User;
-import ua.shareit.repository.AuthorityRepository;
-import ua.shareit.repository.UserRepository;
-import ua.shareit.security.AuthoritiesConstants;
-import ua.shareit.security.SecurityUtils;
-import ua.shareit.service.dto.UserDTO;
-
-import io.github.jhipster.security.RandomUtil;
+import java.time.Instant;
+import java.time.temporal.ChronoUnit;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Objects;
+import java.util.Optional;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -21,10 +19,18 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.time.Instant;
-import java.time.temporal.ChronoUnit;
-import java.util.*;
-import java.util.stream.Collectors;
+import io.github.jhipster.security.RandomUtil;
+import ua.shareit.config.Constants;
+import ua.shareit.domain.Authority;
+import ua.shareit.domain.User;
+import ua.shareit.repository.AuthorityRepository;
+import ua.shareit.repository.UserRepository;
+import ua.shareit.security.AuthoritiesConstants;
+import ua.shareit.security.SecurityUtils;
+import ua.shareit.service.dto.UserDTO;
+import ua.shareit.service.exception.EmailAlreadyUsedException;
+import ua.shareit.service.exception.InvalidPasswordException;
+import ua.shareit.service.exception.UsernameAlreadyUsedException;
 
 /**
  * Service class for managing users.

@@ -1,4 +1,4 @@
-package ua.shareit.service;
+package ua.shareit.service.exception;
 
 public class InvalidPasswordException extends RuntimeException {
 
