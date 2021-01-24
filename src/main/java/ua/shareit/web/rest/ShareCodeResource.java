@@ -6,6 +6,7 @@ import java.util.UUID;
 
 import javax.validation.Valid;
 
+import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
@@ -30,6 +31,7 @@ import ua.shareit.web.rest.vm.ShareCodeVM;
 @RequestMapping("/api")
 public class ShareCodeResource {
 
+    private static final int UUID_LENGTH = 36;
     private final Logger log = LoggerFactory.getLogger(ShareCodeResource.class);
 
     private static final String ENTITY_NAME = "shareCode";
@@ -48,12 +50,15 @@ public class ShareCodeResource {
         log.debug("REST request to save ShareCode : {}", shareCode);
         ShareCode result = shareCodeService.save(shareCode.getCode());
         return ResponseEntity.created(new URI("/api/share-codes/" + result.getUid()))
-                .headers(HeaderUtil.createEntityCreationAlert(applicationName, true, ENTITY_NAME, result.getUid().toString()))
-                .body(result);
+            .headers(HeaderUtil.createEntityCreationAlert(applicationName, true, ENTITY_NAME, result.getUid().toString()))
+            .body(result);
     }
 
     @GetMapping("/share-codes/{uid}")
-    public ResponseEntity<ShareCode> getByUid(@PathVariable("uid") UUID uid) {
-        return ResponseUtil.wrapOrNotFound(shareCodeService.findByUid(uid));
+    public ResponseEntity<ShareCode> getByUid(@PathVariable("uid") String uid) {
+        if (StringUtils.length(uid) != UUID_LENGTH) {
+            return ResponseEntity.notFound().build();
+        }
+        return ResponseUtil.wrapOrNotFound(shareCodeService.findByUid(UUID.fromString(uid)));
     }
 }

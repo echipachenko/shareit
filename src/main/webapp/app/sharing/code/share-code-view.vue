@@ -1,5 +1,9 @@
 <template>
   <b-container fluid="lg">
+    <b-alert show variant="danger" v-if="errorNotFound">
+      Код було видалено, або не існує.
+    </b-alert>
+
     <div v-if="shareCode">
       <b-row>
         <b-col>
