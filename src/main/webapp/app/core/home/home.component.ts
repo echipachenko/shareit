@@ -16,6 +16,11 @@ export default class Home extends Vue {
   @Inject('shareCodeService')
   private shareCodeService: () => ShareCodeService;
 
+  $refs!: {
+    imageUploadInput: HTMLFormElement;
+    documentUploadInput: HTMLFormElement;
+  };
+
   public openLogin(): void {
     this.loginService().openLogin((<any>this).$root);
   }
@@ -23,6 +28,18 @@ export default class Home extends Vue {
   public openShareCodeWindow(): void {
     this.shareCodeService().openShareCodeWindow((<any>this).$root);
   }
+
+  public openUploadImageDialog(): void {
+    this.$refs.imageUploadInput.click();
+  }
+
+  public openUploadDocumentDialog(): void {
+    this.$refs.documentUploadInput.click();
+  }
+
+  public onImageFilePicked(): void {}
+
+  public onDocumentFilePicked(): void {}
 
   public get authenticated(): boolean {
     return this.$store.getters.authenticated;

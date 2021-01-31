@@ -6,17 +6,36 @@
         <div class="text-center">
           <h3 class="m-4">Поділіться будь чим просто зараз!</h3>
 
-          <b-button-group vertical>
+          <b-button-group vertical class="text-left">
             <b-button variant="primary" size="lg" class="m-1" v-on:click="openShareCodeWindow">
               <font-awesome-icon icon="code"/>
               Поділитись Кодом
             </b-button>
 
-<!--            <b-button disabled variant="primary" size="lg" class="m-1">-->
-<!--              <font-awesome-icon icon="file-image"/>-->
-<!--              Поділитись Зображенням-->
-<!--            </b-button>-->
+            <b-button variant="primary" size="lg" class="m-1" disabled v-on:click="openUploadImageDialog">
+              <font-awesome-icon icon="file-image"/>
+              Поділитись Зображенням
+            </b-button>
+
+            <b-button variant="primary" size="lg" class="m-1" disabled v-on:click="openUploadDocumentDialog">
+              <font-awesome-icon icon="file-word"/>
+              Поділитись Документом
+            </b-button>
           </b-button-group>
+
+          <input
+            type="file"
+            style="display: none"
+            ref="imageUploadInput"
+            accept="image/*"
+            @change="onImageFilePicked"/>
+
+          <input
+            type="file"
+            style="display: none"
+            ref="documentUploadInput"
+            accept=".doc,.docx,.xls,.xlsx,.txt,.csv,.pdf"
+            @change="onDocumentFilePicked"/>
         </div>
       </b-col>
     </b-row>
@@ -41,3 +60,7 @@
 
 <script lang="ts" src="./home.component.ts">
 </script>
+
+<style>
+
+</style>

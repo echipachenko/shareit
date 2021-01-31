@@ -51,6 +51,7 @@
     ],
     "herokuAppName": "shareitcomua",
     "herokuDeployType": "jar",
-    "herokuJavaVersion": "15"
+    "herokuJavaVersion": "15",
+    "lastLiquibaseTimestamp": 1612118394000
   }
 }
