@@ -64,8 +64,4 @@ export default class ShareCode extends mixins(AlertMixin) {
         this.getAlertFromStore();
       });
   }
-
-  public isShareButtonDisabled(): boolean {
-    return this.recaptchaEnabled && !this.recaptchaSiteKey;
-  }
 }

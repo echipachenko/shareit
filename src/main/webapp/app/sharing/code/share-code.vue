@@ -44,7 +44,7 @@
             </vue-recaptcha>
 
             <b-button variant="success" type="submit" class="mt-1"
-                      :disabled="$v.code.$invalid || !isShareButtonDisabled">Поділитись</b-button>
+                      :disabled="$v.code.$invalid">Поділитись</b-button>
           </b-form>
         </div>
       </b-col>
