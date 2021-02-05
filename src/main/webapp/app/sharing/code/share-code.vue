@@ -15,7 +15,7 @@
             Ваш код успіно завантажено. UUID: <strong>{{ uid }}</strong>
           </b-alert>
 
-          <b-button variant="primary" class="mt-2" v-on:click="copyAndClose">
+          <b-button variant="primary" class="mt-2" v-on:click="copyToClipboard">
             <font-awesome-icon icon="clipboard"/>
             Скопіювати URL
           </b-button>
@@ -35,8 +35,7 @@
             </b-form-textarea>
 
             <div v-if="$v.code.$anyDirty && $v.code.$invalid">
-              <small class="form-text text-danger"
-                     v-if="!$v.code.required" v-text="$t('entity.validation.required')">
+              <small class="form-text text-danger" v-if="!$v.code.required" v-text="$t('entity.validation.required')">
                 This field is required.
               </small>
             </div>
@@ -45,7 +44,7 @@
             </vue-recaptcha>
 
             <b-button variant="success" type="submit" class="mt-1"
-                      :disabled="$v.code.$invalid">Поділитись</b-button>
+                      :disabled="$v.code.$invalid || !isShareButtonDisabled">Поділитись</b-button>
           </b-form>
         </div>
       </b-col>

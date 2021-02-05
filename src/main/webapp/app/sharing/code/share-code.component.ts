@@ -50,11 +50,22 @@ export default class ShareCode extends mixins(AlertMixin) {
       });
   }
 
-  public copyAndClose(): void {
-    this.alertService().showAlert('В розробці!', 'danger');
-    this.getAlertFromStore();
-    /*setTimeout(() => {
-      this.$root.$emit('bv::hide::modal', 'share-code-page');
-    }, 2500);*/
+  public copyToClipboard(): void {
+    let url = window.location.href + 'sharing/code/' + this.uid;
+    navigator.clipboard
+      .writeText(url)
+      .then(() => {
+        this.alertService().showAlert('Скопійовано!', 'success');
+        this.getAlertFromStore();
+      })
+      .catch(err => {
+        console.log('Something went wrong', err);
+        this.alertService().showAlert('Виникла помилка :(...' + err, 'danger');
+        this.getAlertFromStore();
+      });
+  }
+
+  public isShareButtonDisabled(): boolean {
+    return this.recaptchaEnabled && !this.recaptchaSiteKey;
   }
 }

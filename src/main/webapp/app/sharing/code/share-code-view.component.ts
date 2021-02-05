@@ -37,7 +37,17 @@ export default class ShareCodeView extends mixins(AlertMixin) {
   }
 
   public copyCodeToClipboard(): void {
-    this.alertService().showAlert('В розробці!', 'danger');
-    this.getAlertFromStore();
+    let data = this.shareCode.code;
+    navigator.clipboard
+      .writeText(data)
+      .then(() => {
+        this.alertService().showAlert('Скопійовано!', 'success');
+        this.getAlertFromStore();
+      })
+      .catch(err => {
+        console.log('Something went wrong', err);
+        this.alertService().showAlert('Виникла помилка :(...' + err, 'danger');
+        this.getAlertFromStore();
+      });
   }
 }

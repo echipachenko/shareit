@@ -4,7 +4,7 @@ export interface IShareCode {
   uid?: string;
   created?: Date;
   expired?: Date;
-  code?: String;
+  code?: string;
 }
 
 export class ShareCode implements IShareCode {
@@ -14,6 +14,6 @@ export class ShareCode implements IShareCode {
     public uid?: string,
     public created?: Date,
     public expired?: Date,
-    public code?: String
+    public code?: string
   ) {}
 }
