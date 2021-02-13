@@ -1,5 +1,10 @@
 <template>
   <b-container>
+    <b-row align-h="center">
+      <b-col cols="4" align-self="center">
+        <img src="content/images/logo-cloud-upload.png" class="img-fluid mx-auto d-block"/>
+      </b-col>
+    </b-row>
 
     <b-row align-h="center">
       <b-col>
@@ -61,6 +66,5 @@
 <script lang="ts" src="./home.component.ts">
 </script>
 
-<style>
-
+<style scoped>
 </style>
