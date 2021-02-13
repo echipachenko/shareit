@@ -9,7 +9,7 @@ export default class ShareCodeService {
     instance.$emit('bv::show::modal', 'share-code-page');
   }
 
-  public shareCode(code: String, recaptchaUserResponse: String): Promise<IShareCode> {
+  public shareCode(code: string, recaptchaUserResponse: string): Promise<IShareCode> {
     return new Promise<IShareCode>((resolve, reject) => {
       axios
         .post(baseApiUrl, { code: code, recaptchaUserResponse: recaptchaUserResponse })

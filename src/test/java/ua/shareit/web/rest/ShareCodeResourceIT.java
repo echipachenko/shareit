@@ -18,6 +18,7 @@ import org.springframework.transaction.annotation.Transactional;
 import ua.shareit.ShareitApp;
 import ua.shareit.domain.ShareCode;
 import ua.shareit.repository.ShareCodeRepository;
+import ua.shareit.web.rest.share.ShareCodeResource;
 import ua.shareit.web.rest.vm.ShareCodeVM;
 
 /**

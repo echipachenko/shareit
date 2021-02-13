@@ -9,7 +9,6 @@ import AlertMixin from '@/shared/alert/alert.mixin';
 export default class ShareCodeView extends mixins(AlertMixin) {
   @Inject('alertService') protected alertService: () => AlertService;
   public shareCode: IShareCode = null;
-  public errorNotFound: boolean = false;
 
   @Inject('shareCodeViewService')
   private shareCodeViewService: () => ShareCodeViewService;
@@ -22,16 +21,15 @@ export default class ShareCodeView extends mixins(AlertMixin) {
     });
   }
 
-  public init(uid: String): void {
+  public init(uid: string): void {
     this.shareCodeViewService()
       .getByUid(uid)
       .then(res => {
-        this.errorNotFound = false;
         this.shareCode = res;
       })
       .catch(err => {
         if (err.response.status === 404) {
-          this.errorNotFound = true;
+          this.$router.push({ name: 'NotFound' });
         }
       });
   }

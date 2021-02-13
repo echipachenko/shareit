@@ -24,14 +24,14 @@ const validations: any = {
 export default class ShareCode extends mixins(AlertMixin) {
   public recaptchaEnabled = RECAPTCHA_ENABLED;
   public recaptchaSiteKey = RECAPTCHA_SITE_KEY;
-  public code: String = null;
-  public uid: String = null;
-  public recaptchaUserResponse: String = null;
+  public code: string = null;
+  public uid: string = null;
+  public recaptchaUserResponse: string = null;
 
   @Inject('shareCodeService')
   private shareCodeService: () => ShareCodeService;
 
-  public recaptcha(response: String): void {
+  public recaptcha(response: string): void {
     this.recaptchaUserResponse = response;
   }
 

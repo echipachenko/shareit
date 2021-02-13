@@ -213,6 +213,7 @@ dependencies {
     // to use a SNAPSHOT release instead of a stable release
     implementation group: "io.github.jhipster", name: "jhipster-framework"
     implementation "javax.annotation:javax.annotation-api"
+    implementation "commons-io:commons-io"
     implementation "org.springframework.boot:spring-boot-starter-cache"
     implementation "io.dropwizard.metrics:metrics-core"
     implementation "io.micrometer:micrometer-registry-prometheus"

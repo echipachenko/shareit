@@ -3,6 +3,7 @@ import { Inject, Vue } from 'vue-property-decorator';
 import LoginService from '@/account/login.service';
 import ShareCodeService from '@/sharing/code/share-code.service';
 import ShareCode from '@/sharing/code/share-code.vue';
+import ShareImageService from '@/sharing/image/share-image.service';
 
 @Component({
   components: {
@@ -15,6 +16,9 @@ export default class Home extends Vue {
 
   @Inject('shareCodeService')
   private shareCodeService: () => ShareCodeService;
+
+  @Inject('shareImageService')
+  private shareImageService: () => ShareImageService;
 
   $refs!: {
     imageUploadInput: HTMLFormElement;
@@ -37,7 +41,12 @@ export default class Home extends Vue {
     this.$refs.documentUploadInput.click();
   }
 
-  public onImageFilePicked(): void {}
+  public onImageFilePicked(): void {
+    let file = this.$refs.imageUploadInput.files[0];
+    this.shareImageService()
+      .uploadImage(file)
+      .then(r => this.$router.push({ name: 'ShareImageView', params: { uid: r.uid } }));
+  }
 
   public onDocumentFilePicked(): void {}
 

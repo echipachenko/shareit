@@ -12,7 +12,7 @@
               Поділитись Кодом
             </b-button>
 
-            <b-button variant="primary" size="lg" class="m-1" disabled v-on:click="openUploadImageDialog">
+            <b-button variant="primary" size="lg" class="m-1" v-on:click="openUploadImageDialog">
               <font-awesome-icon icon="file-image"/>
               Поділитись Зображенням
             </b-button>

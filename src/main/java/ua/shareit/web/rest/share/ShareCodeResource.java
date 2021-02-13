@@ -1,4 +1,4 @@
-package ua.shareit.web.rest;
+package ua.shareit.web.rest.share;
 
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -29,7 +29,7 @@ import ua.shareit.web.rest.vm.ShareCodeVM;
  * REST controller for managing {@link ua.shareit.domain.ShareCode}.
  */
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/share-codes")
 public class ShareCodeResource {
 
     private static final int UUID_LENGTH = 36;
@@ -48,7 +48,7 @@ public class ShareCodeResource {
         this.reCaptchaService = reCaptchaService;
     }
 
-    @PostMapping("/share-codes")
+    @PostMapping
     public ResponseEntity<ShareCode> createShareCode(@Valid @RequestBody ShareCodeVM shareCode) throws URISyntaxException {
         log.debug("REST request to save ShareCode : {}", shareCode);
         reCaptchaService.validate(shareCode.getRecaptchaUserResponse());
@@ -58,7 +58,7 @@ public class ShareCodeResource {
             .body(result);
     }
 
-    @GetMapping("/share-codes/{uid}")
+    @GetMapping("/{uid}")
     public ResponseEntity<ShareCode> getByUid(@PathVariable("uid") String uid) {
         if (StringUtils.length(uid) != UUID_LENGTH) {
             return ResponseEntity.notFound().build();
