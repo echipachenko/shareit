@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { IShareImage } from '@/shared/model/share-image.model';
 
-const baseApiUrl = '/api/share-images';
+const baseApiUrl = '/api/share/image';
 
 export default class ShareImageService {
   public uploadImage(file: File): Promise<IShareImage> {

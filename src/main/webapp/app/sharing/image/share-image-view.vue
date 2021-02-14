@@ -1,10 +1,23 @@
 <template>
-  <b-row>
-    <b-col v-if="shareImage">
-      <b>UID: {{ shareImage.uid }}</b>
-      <p>Відобрадення зображення буде реалізовано найближчим часом</p>
-    </b-col>
-  </b-row>
+  <b-container fluid="lg">
+    <b-row>
+      <b-col v-if="shareImage">
+        <div>
+          <b-badge>UID</b-badge>
+          {{ shareImage.uid }}
+        </div>
+        <b-img fluid thumbnail center v-bind:src="`/api/share/image/${shareImage.uid}/image`"></b-img>
+        <div>
+          <b-badge>Створено</b-badge>
+          {{ shareImage.created | formatDate }}
+        </div>
+        <div>
+          <b-badge>Буде видалено</b-badge>
+          {{ shareImage.expired | formatDate }}
+        </div>
+      </b-col>
+    </b-row>
+  </b-container>
 </template>
 <style scoped>
 </style>

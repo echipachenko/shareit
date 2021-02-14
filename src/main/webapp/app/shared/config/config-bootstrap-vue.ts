@@ -3,6 +3,7 @@ import {
   BFormInput,
   BFormCheckbox,
   BFormGroup,
+  BImg,
   BProgress,
   BProgressBar,
   BPagination,
@@ -36,6 +37,7 @@ export function initBootstrapVue(vue) {
   vue.component('b-container', BContainer);
   vue.component('b-row', BRow);
   vue.component('b-col', BCol);
+  vue.component('b-img', BImg);
   vue.component('b-dropdown', BDropdown);
   vue.component('b-dropdown-item', BDropdownItem);
   vue.component('b-link', BLink);

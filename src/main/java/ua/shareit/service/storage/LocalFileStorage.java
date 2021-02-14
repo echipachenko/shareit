@@ -1,9 +1,11 @@
 package ua.shareit.service.storage;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.OutputStream;
 import java.util.UUID;
 
 import javax.annotation.PostConstruct;
@@ -30,6 +32,16 @@ public class LocalFileStorage implements IStorage {
         try (FileOutputStream fos = new FileOutputStream(dest)) {
             IOUtils.copy(is, fos);
             return uuid;
+        } catch (IOException e) {
+            throw new StorageException(e);
+        }
+    }
+
+    @Override
+    public void readFileToOutputStream(OutputStream os, UUID uuid) {
+        File dest = new File(ROOT, uuid.toString() + ".dat");
+        try (InputStream is = new FileInputStream(dest)) {
+            IOUtils.copy(is, os);
         } catch (IOException e) {
             throw new StorageException(e);
         }
