@@ -6,6 +6,10 @@
           <b-badge>UID</b-badge>
           {{ shareImage.uid }}
         </div>
+        <div>
+          <b-badge>Назва</b-badge>
+          {{ shareImage.fileName }}
+        </div>
         <b-img fluid thumbnail center v-bind:src="`/api/share/image/${shareImage.uid}/image`"></b-img>
         <div>
           <b-badge>Створено</b-badge>
