@@ -29,7 +29,6 @@ import ConfigurationService from '@/admin/configuration/configuration.service';
 
 import HighlightJS from 'highlight.js';
 import ShareCodeService from './sharing/code/share-code.service';
-import ShareCodeViewService from '@/sharing/code/share-code-view.service';
 import ShareImageService from '@/sharing/image/share-image.service';
 
 /* tslint:disable */
@@ -101,7 +100,6 @@ new Vue({
     accountService: () => accountService,
 
     shareCodeService: () => new ShareCodeService(),
-    shareCodeViewService: () => new ShareCodeViewService(),
     shareImageService: () => new ShareImageService(),
   },
   i18n,

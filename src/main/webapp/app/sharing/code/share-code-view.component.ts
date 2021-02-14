@@ -1,6 +1,6 @@
 import Component, { mixins } from 'vue-class-component';
 import { Inject } from 'vue-property-decorator';
-import ShareCodeViewService from '@/sharing/code/share-code-view.service';
+import ShareCodeService from '@/sharing/code/share-code.service';
 import { IShareCode } from '@/shared/model/share-code.model';
 import AlertService from '@/shared/alert/alert.service';
 import AlertMixin from '@/shared/alert/alert.mixin';
@@ -10,8 +10,8 @@ export default class ShareCodeView extends mixins(AlertMixin) {
   @Inject('alertService') protected alertService: () => AlertService;
   public shareCode: IShareCode = null;
 
-  @Inject('shareCodeViewService')
-  private shareCodeViewService: () => ShareCodeViewService;
+  @Inject('shareCodeService')
+  private shareCodeService: () => ShareCodeService;
 
   beforeRouteEnter(to, from, next) {
     next(vm => {
@@ -22,7 +22,7 @@ export default class ShareCodeView extends mixins(AlertMixin) {
   }
 
   public init(uid: string): void {
-    this.shareCodeViewService()
+    this.shareCodeService()
       .getByUid(uid)
       .then(res => {
         this.shareCode = res;

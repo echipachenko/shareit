@@ -29,7 +29,7 @@ import ua.shareit.web.rest.vm.ShareCodeVM;
  * REST controller for managing {@link ua.shareit.domain.ShareCode}.
  */
 @RestController
-@RequestMapping("/api/share-codes")
+@RequestMapping("/api/share/code")
 public class ShareCodeResource {
 
     private static final int UUID_LENGTH = 36;
@@ -53,7 +53,7 @@ public class ShareCodeResource {
         log.debug("REST request to save ShareCode : {}", shareCode);
         reCaptchaService.validate(shareCode.getRecaptchaUserResponse());
         ShareCode result = shareCodeService.save(shareCode.getCode());
-        return ResponseEntity.created(new URI("/api/share-codes/" + result.getUid()))
+        return ResponseEntity.created(new URI("/api/share/code/" + result.getUid()))
             .headers(HeaderUtil.createEntityCreationAlert(applicationName, true, ENTITY_NAME, result.getUid().toString()))
             .body(result);
     }

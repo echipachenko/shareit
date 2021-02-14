@@ -17,7 +17,7 @@ import ua.shareit.domain.ShareImage;
 import ua.shareit.service.ShareImageService;
 
 @RestController
-@RequestMapping("/api/share-images")
+@RequestMapping("/api/share/image")
 public class ShareImageResource {
 
     private final ShareImageService shareImageService;
@@ -29,7 +29,7 @@ public class ShareImageResource {
     @PostMapping
     public ResponseEntity<ShareImage> uploadImage(@RequestParam("file") MultipartFile file) throws Exception {
         ShareImage result = shareImageService.shareImage(file.getOriginalFilename(), file.getInputStream());
-        return ResponseEntity.created(new URI("/api/share-images/" + result.getUid())).body(result);
+        return ResponseEntity.created(new URI("/api/share/image/" + result.getUid())).body(result);
     }
 
     @GetMapping("/{uid}")

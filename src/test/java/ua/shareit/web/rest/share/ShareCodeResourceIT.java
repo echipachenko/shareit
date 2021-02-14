@@ -1,4 +1,4 @@
-package ua.shareit.web.rest;
+package ua.shareit.web.rest.share;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
@@ -18,7 +18,7 @@ import org.springframework.transaction.annotation.Transactional;
 import ua.shareit.ShareitApp;
 import ua.shareit.domain.ShareCode;
 import ua.shareit.repository.ShareCodeRepository;
-import ua.shareit.web.rest.share.ShareCodeResource;
+import ua.shareit.web.rest.TestUtil;
 import ua.shareit.web.rest.vm.ShareCodeVM;
 
 /**
@@ -45,7 +45,7 @@ public class ShareCodeResourceIT {
         vm.setCode(DEFAULT_CODE);
 
         // Create the ShareCode
-        restShareCodeMockMvc.perform(post("/api/share-codes")
+        restShareCodeMockMvc.perform(post("/api/share/code")
             .contentType(MediaType.APPLICATION_JSON)
             .content(TestUtil.convertObjectToJsonBytes(vm)))
             .andExpect(status().isCreated());
