@@ -10,6 +10,7 @@ import java.util.UUID;
 
 import javax.annotation.PostConstruct;
 
+import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.IOUtils;
 import org.springframework.stereotype.Service;
 
@@ -45,5 +46,10 @@ public class LocalFileStorage implements IStorage {
         } catch (IOException e) {
             throw new StorageException(e);
         }
+    }
+
+    @Override
+    public void deleteByUuid(UUID uuid) {
+        FileUtils.deleteQuietly(new File(ROOT, uuid.toString() + ".dat"));
     }
 }

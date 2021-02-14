@@ -8,4 +8,6 @@ public interface IStorage {
     UUID saveFile(InputStream is);
 
     void readFileToOutputStream(OutputStream os, UUID uuid);
+
+    void deleteByUuid(UUID uuid);
 }
